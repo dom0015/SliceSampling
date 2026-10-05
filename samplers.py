@@ -1,7 +1,7 @@
 """
 Pomocný modul s implementacemi MCMC samplerů:
   - Slice Sampling (univariate, stepping-out)
-  - Random Walk Metropolis-Hastings
+  - Random Walk Metropolis (RWM, speciální případ Metropolis-Hastings)
 """
 
 import numpy as np
@@ -97,11 +97,11 @@ def slice_sampling_one_step(log_pdf, x_curr, w, rng):
 
 
 # ---------------------------------------------------------------------------
-# Random Walk Metropolis-Hastings
+# Random Walk Metropolis (RWM)
 # ---------------------------------------------------------------------------
 def metropolis_hastings(log_pdf, x0, n_samples, proposal_std=1.0, rng=None):
     """
-    Jednoduchý Random Walk Metropolis-Hastings.
+    Jednoduchý Random Walk Metropolis (RWM) s normálním návrhovým rozdělením.
 
     Parametry
     ---------
